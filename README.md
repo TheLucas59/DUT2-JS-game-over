@@ -11,8 +11,8 @@
 - [D. Précisions techniques](#d-précisions-techniques)
 	- [D.1. Recherche & liste jeux vidéos](#d1-recherche-liste-jeux-vidéos)
 	- [D.2. favoris](#d2-favoris)
-	- [D.2. UX](#d2-ux)
-	- [D.3. UI](#d3-ui)
+	- [D.3. UX](#d3-ux)
+	- [D.4. UI](#d4-ui)
 - [E. Critères d'évaluation](#e-critères-dévaluation)
 - [F. Modalités de rendu et deadline](#f-modalités-de-rendu-et-deadline)
 - [G. Questions](#g-questions)
@@ -124,10 +124,10 @@ En revanche des **points "bonus"** seront accordés aux équipes qui arriveraien
 > _**Pour un exemple concret d'utilisation, je vous recommande la lecture de ce tutoriel** qui explique comment stocker des données complexes (objets, tableaux, etc.) dans le localStorage : https://js.plainenglish.io/can-we-store-javascript-objects-in-localstorage-b887181a7886 (le fait que ce tutoriel parle de `pizza` est un pur hasard !)_
 
 
-### D.2. UX
+### D.3. UX
 Pensez que comme vous êtes dans une SPA, rien n'indique à l'utilisateur qu'un chargement est en cours. Par conséquent, essayez autant que possible de signaler à l'utilisateur lorsqu'une page charge des données en AJAX (par le biais d'un loader, ou d'un message de chargement en cours par exemple)
 
-### D.3. UI
+### D.4. UI
 Vous êtes libres de la mise en page de votre application. Si vous êtes en manque d'inspiration pour le design de votre site, vous pouvez tout à fait vous inspirer des sites de jeu vidéo grand public (_attention, j'ai bien dit "inspirer" : copier/coller les css d'un site existant n'est pas autorisé_).
 
 Au niveau technique, vous avez le choix d'utiliser un framework CSS pour l'apparence de votre application, un préprocesseur CSS (Sass, less) ou de partir de zéro (hashtag #warrior).
