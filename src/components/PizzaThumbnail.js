@@ -8,7 +8,8 @@ export default class PizzaThumbnail extends Component {
 				new Img(game.background_image),
 				new Component('section', null, [
 					new Component('h4', null, game.name),
-					new Component('p', null, `Note metacritic : ${game.metacritic}`)
+					new Component('p', null, `Note metacritic : ${game.metacritic}`),
+					new Component('button', null, 'Favoris')
 				]),
 			]),
 		]);

@@ -15,7 +15,8 @@ export default class PizzaList extends Page {
 
 	mount(element) {
 		super.mount(element);
-		fetch(`https://api.rawg.io/api/games`)
+		const today = new Date();
+		fetch(`https://api.rawg.io/api/games?dates=2020-01-01,${today.getFullYear()}-${String(today.getMonth()+1).padStart(2, '0')}-${String(today.getDate()).padStart(2, '0')}&ordering=-metacritic&metacritic=50,100`)
 			.then(response => response.json())
 			.then(data => {
 				this.pizzas = data.results;
