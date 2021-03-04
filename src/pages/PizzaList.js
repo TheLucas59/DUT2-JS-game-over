@@ -1,6 +1,6 @@
 import Page from './Page';
 import PizzaThumbnail from '../components/PizzaThumbnail';
-
+const config = require("../../apiconfig.json");
 export default class PizzaList extends Page {
 	#pizzas;
 
@@ -16,7 +16,7 @@ export default class PizzaList extends Page {
 
 	mount(element) {
 		super.mount(element);
-		fetch('http://localhost:8080/api/v1/pizzas')
+		fetch(`https://api.rawg.io/api/games?key=${config.apikey}`)
 			.then(response => response.json())
 			.then(data => {
 				this.pizzas = data;
