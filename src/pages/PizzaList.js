@@ -16,7 +16,7 @@ export default class PizzaList extends Page {
 
 	mount(element) {
 		super.mount(element);
-		fetch(`https://api.rawg.io/api/games?key=${config.apikey}`)
+		fetch(`https://api.rawg.io/api/games`)
 			.then(response => response.json())
 			.then(data => {
 				this.pizzas = data;
