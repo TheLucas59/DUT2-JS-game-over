@@ -97,7 +97,7 @@
 	color: #000;
 	/* color: #e2952d; */
 	margin: 0 0 15px;
-	white-space: nowrap;
+	white-space: normal;
 }
 .pizzaThumbnail a section h4:before,
 .pizzaThumbnail a section h4:after {
