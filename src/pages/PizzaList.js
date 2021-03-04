@@ -1,6 +1,5 @@
 import Page from './Page';
 import PizzaThumbnail from '../components/PizzaThumbnail';
-const config = require("../../apiconfig.json");
 export default class PizzaList extends Page {
 	#pizzas;
 
