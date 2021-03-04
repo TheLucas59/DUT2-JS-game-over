@@ -18,7 +18,7 @@ export default class PizzaList extends Page {
 		fetch(`https://api.rawg.io/api/games`)
 			.then(response => response.json())
 			.then(data => {
-				this.pizzas = data;
+				this.pizzas = data.results;
 				element.innerHTML = this.render();
 			});
 	}
