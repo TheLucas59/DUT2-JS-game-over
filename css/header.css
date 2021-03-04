@@ -1,6 +1,6 @@
 body > header {
 	position: relative;
-	background-image: url('../images/header-sj-0fmiFfzRhQY-unsplash.jpg');
+	background-image: url('../images/header-bg.jpg');
 	background-size: cover;
 	background-position: center;
 	padding: 50px 10px 10px;
@@ -15,7 +15,12 @@ body > header:before {
 	right: 0;
 	bottom: 0;
 	left: 0;
-	background-image: linear-gradient(0deg, #121618, #121618ee);
+
+	background-image: linear-gradient(0deg, rgb(0, 0, 0), rgba(0, 0, 0, 0.5));
+	/* background-image: linear-gradient(0deg, 	rgb(100, 10, 10), 
+												rgba(20, 0, 0, 0.80), 
+												rgba(0, 0, 0, 0.65), 
+												rgba(0, 0, 0, 0.5)); */
 }
 body > header:after {
 	content: '';
@@ -50,16 +55,21 @@ body > header .logo {
 }
 body > header .logo img {
 	width: 120px;
+	/* filter: drop-shadow(0 0 0.75rem rgb(220, 20, 60)); */
+	filter: drop-shadow(0 0 0.75rem rgb(255, 150, 150));
 }
 body > header .logo span {
 	font-family: GravitasOne;
 	text-transform: uppercase;
 	font-size: 22px;
 	letter-spacing: 4px;
+	color: rgb(149, 78, 255);
+	text-shadow: 0px 0px 20px rgb(149, 78, 255);
 }
 body > header .logo em {
 	font-style: normal;
-	color: #e2952d;
+	color: rgb(0, 200, 13);
+	text-shadow: 0px 0px 10px rgb(0, 200, 13);
 }
 body > header .logo small {
 	font-family: OpenSansCondensed;
