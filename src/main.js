@@ -12,7 +12,7 @@ Router.titleElement = document.querySelector('.pageTitle');
 Router.contentElement = document.querySelector('.pageContent');
 Router.menuElement = document.querySelector('.mainMenu');
 Router.routes = [
-	{ path: '/', page: pizzaList, title: 'La carte' },
+	{ path: '/', page: pizzaList, title: 'Les jeux' }, // afficher une phrase en fonction du trie (meilleur/derniere sortie/ordre croisant) ?
 	{ path: '/ajouter-pizza', page: pizzaForm, title: 'Ajouter une pizza' },
 	{ path: '/favoris', page: favorisList, title: 'Mes Favoris' },
 	{ path: '/a-propos', page: aboutPage, title: 'À propos' },
@@ -20,7 +20,7 @@ Router.routes = [
 
 document.querySelector(
 	'.logo'
-).innerHTML += `<small>les pizzas c'est la vie</small>`;
+).innerHTML += `<small>le gaming plus qu'une passion</small>`;
 
 const newsContainer = document.querySelector('.newsContainer');
 

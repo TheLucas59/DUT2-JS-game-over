@@ -61,12 +61,13 @@ body > header .logo img {
 body > header .logo span {
 	font-family: GravitasOne;
 	text-transform: uppercase;
-	font-size: 22px;
+	font-size: 27px;
 	letter-spacing: 4px;
 	color: rgb(149, 78, 255);
 	text-shadow: 0px 0px 20px rgb(149, 78, 255);
 }
 body > header .logo em {
+	font-size: 22px;
 	font-style: normal;
 	color: rgb(0, 200, 13);
 	text-shadow: 0px 0px 10px rgb(0, 200, 13);
