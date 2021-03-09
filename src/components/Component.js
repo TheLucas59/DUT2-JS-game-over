@@ -20,10 +20,17 @@ export default class Component {
 	}
 
 	renderAttributes() {
+		let result = '';
 		if (this.attribute) {
-			return `${this.attribute.name}="${this.attribute.value}"`;
+			if(this.attribute instanceof Array) {
+				for(let atr in this.attribute) {
+					result += `${this.attribute[atr].name}="${this.attribute[atr].value}" `;
+				}
+			} else {
+				result += `${this.attribute.name}="${this.attribute.value}"`;
+			}
 		}
-		return '';
+		return result;
 	}
 
 	renderChildren() {
