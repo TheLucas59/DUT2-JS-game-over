@@ -16,15 +16,22 @@ export default class GameList extends Page {
 
 	mount(element) {
 		super.mount(element);
+		let api = 'https://api.rawg.io/api/games';
 
 		document.querySelector('.searchBar').style.display='';
 
 		const today = new Date();
-		fetch(`https://api.rawg.io/api/games?dates=2020-01-01,${today.getFullYear()}-${String(today.getMonth()+1).padStart(2, '0')}-${String(today.getDate()).padStart(2, '0')}&ordering=-metacritic&metacritic=50,100`)
+		fetch(`${api}?dates=2020-01-01,${today.getFullYear()}-${String(today.getMonth()+1).padStart(2, '0')}-${String(today.getDate()).padStart(2, '0')}&ordering=-metacritic&metacritic=50,100`)
 			.then(response => response.json())
 			.then(data => {
 				this.pizzas = data.results;
 				element.innerHTML = this.render();
 			});
+	}
+
+	changeApiRequest(searchResult) {
+		// ici il faut changer l'affichage sur la page
+		// mais je n'ai aucune idée de comment faire... (Eliott)
+		console.log(searchResult); // print le contenue de la barre de recherche
 	}
 }

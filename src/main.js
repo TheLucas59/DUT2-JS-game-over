@@ -38,3 +38,14 @@ gameLinks.forEach(lien => {
 		Router.navigate(lien.getAttribute('href'), false);
 	})
 })
+
+
+let btn = document.getElementById('searchBtn');
+
+btn.addEventListener('click', search);
+
+function search() { 
+	// créé une nouvelle page avec GameList et en passant en param la valeur récupéré
+	let input = document.getElementById("searchValue").value;
+	gameList.changeApiRequest(input);
+}
