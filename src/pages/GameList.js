@@ -1,6 +1,6 @@
 import Page from './Page';
 import PizzaThumbnail from '../components/PizzaThumbnail';
-export default class PizzaList extends Page {
+export default class GameList extends Page {
 	#pizzas;
 
 	constructor(pizzas) {
