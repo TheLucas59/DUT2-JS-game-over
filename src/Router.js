@@ -27,7 +27,13 @@ export default class Router {
 	 * @param {Boolean} pushState active/désactive le pushState (ajout d'une entrée dans l'historique de navigation)
 	 */
 	static navigate(path, pushState = true) {
-		const route = this.routes.find(route => route.path === path);
+		let route = this.routes.find(route => route.path === path);
+		if(route == undefined) {
+			if(path.startsWith('/detail-')) {
+				route = this.routes.find(route => route.path == '/detail');
+				route.path = path;
+			}
+		}
 		if (route) {
 			this.titleElement.innerHTML = `<h1>${route.title}</h1>`;
 			this.contentElement.innerHTML = route.page.render();
