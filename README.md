@@ -10,7 +10,7 @@
 
 `npm run build`
 
-`npx serve -l <port binding>`
+`npx serve -s -l <port binding>`
 
 ### Captures d'écran
 
