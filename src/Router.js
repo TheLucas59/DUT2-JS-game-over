@@ -27,6 +27,9 @@ export default class Router {
 	 * @param {Boolean} pushState active/désactive le pushState (ajout d'une entrée dans l'historique de navigation)
 	 */
 	static navigate(path, pushState = true) {
+		// on reset le display de la searchBar sur chaque nouvelle page
+		document.querySelector('.searchBar').style.display='none';
+
 		let route = this.routes.find(route => route.path === path);
 		if(route == undefined) {
 			if(path.startsWith('/detail-')) {
