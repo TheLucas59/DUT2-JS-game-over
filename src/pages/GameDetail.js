@@ -11,7 +11,7 @@ export default class GameDetail extends Page {
     }
     
     set jeu(value) {
-        this.children = new UniqueGameThumbnail(value);
+        this.children = [new UniqueGameThumbnail(value)];
     }
     
     mount(element) {
