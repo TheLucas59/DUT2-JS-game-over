@@ -1,7 +1,7 @@
 
 body > footer {
 	position: relative;
-	padding: 90px;
+	padding: 50px;
 	background-image: url('../images/header-sj-0fmiFfzRhQY-unsplash.jpg');
 	background-size: cover;
 	background-position: center;
@@ -51,5 +51,5 @@ body > footer > div:first-child {
 	background-repeat: no-repeat;
 	background-position: top;
 	background-size: 80px;
-	padding-top: 80px;
+	padding-top: 20px;
 }
