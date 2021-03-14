@@ -15,6 +15,7 @@ figure {
     overflow: hidden;
     margin: 0;
 }
+
 figure img { 
     display: block;
     width: 100%;
@@ -34,4 +35,8 @@ figure img {
     margin-left: 25px;
     margin-right: 25px;
     margin-bottom: 10px;
+}
+
+.gameInfo {
+    padding-bottom: 15px;
 }

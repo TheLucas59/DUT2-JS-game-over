@@ -8,7 +8,7 @@ export default class UniqueGameThumbnail extends Component {
 				new Component('figure', {name: 'class', value: 'headimagewrapper'}, [
 					new Img(game.background_image),
 				]),				
-				new Component('section', null, [
+				new Component('section', {name:'class', value:'gameInfo'}, [
 					new Component('h4', null, game.name),
 					new Component('p', null, game.description),
 					new Component('p', null, `Note metacritic : ${game.metacritic}`),
