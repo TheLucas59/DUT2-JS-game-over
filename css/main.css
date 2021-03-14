@@ -145,3 +145,32 @@ a:hover {
 @keyframes burn {
 	to { transform: translateX(3px) skew(-13deg); }
 }
+
+.searchBar input[type=text] {
+	background-color: rgba(40, 0, 0, 0.7);
+	color: white;
+	padding: 6px;
+	margin-top: 8px;
+	font-size: 17px;
+	border: none;
+}
+
+/* TODO : améliorer le css du bouton */
+.searchBar button {
+	padding: 6px 10px;
+	margin-top: 8px;
+	margin-right: 16px;
+	background: #ddd;
+	font-size: 17px;
+	border: none;
+	cursor: pointer;
+}
+  
+.searchBar button:hover {
+	background: #ccc;
+}
+
+.searchBar {
+	z-index: 2;
+	margin-bottom: 10px;;
+}

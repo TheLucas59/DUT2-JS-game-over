@@ -46,5 +46,7 @@ btn.addEventListener('click', event => {
 	event.preventDefault();
 	// créé une nouvelle page avec GameList et en passant en param la valeur récupérée
 	let input = document.getElementById("searchValue").value;
+	if(input == '') input = null;
 	gameList.changeApiRequest(input);
+	Router.navigate(document.location.pathname, false); // on "recharge" la page
 });

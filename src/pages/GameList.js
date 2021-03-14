@@ -3,6 +3,7 @@ import GameThumbnail from '../components/GameThumbnail';
 import Component from '../components/Component';
 export default class GameList extends Page {
 	#games;
+	searchQuery;
 
 	constructor(games) {
 		super('gameList'); // on pase juste la classe CSS souhaitée
@@ -15,16 +16,20 @@ export default class GameList extends Page {
 	}
 
 	mount(element) {
-		super.mount(element);
-		let api = 'https://api.rawg.io/api/games';
+		document.querySelector('.searchBar').style.display=''; // affichage de la barre de recherche
 
-		document.querySelector('.searchBar').style.display='';
+		super.mount(element);
+		let api = 'https://api.rawg.io/api/games'; // adresse de base pour toute les requette
+		let ordering = 'ordering=-metacritic&metacritic=50,100'; // les valeur pour ordoner les jeux (potentiellement changeable plus tard)
 
 		const today = new Date();
-		fetch(`${api}?
-			dates=2020-01-01,${today.getFullYear()}-${String(today.getMonth()+1).padStart(2, '0')}-${String(today.getDate()).padStart(2, '0')}&
-			ordering=-metacritic&
-			metacritic=50,100`)
+		let query = `?dates=2020-01-01,${today.getFullYear()}-${String(today.getMonth()+1).padStart(2, '0')}-${String(today.getDate()).padStart(2, '0')}`;
+		
+		if(this.searchQuery != null) // si null c'est qu'on a pas fait de recherche
+			query = this.searchQuery;
+
+		console.log(`query : ${api}${query}&${ordering}`);
+		fetch(`${api}${query}&${ordering}`)
 			.then(response => response.json())
 			.then(data => {
 				this.games = data.results;
@@ -33,8 +38,9 @@ export default class GameList extends Page {
 	}
 
 	changeApiRequest(searchResult) {
-		// ici il faut changer l'affichage sur la page
-		// mais je n'ai aucune idée de comment faire... (Eliott)
-		console.log(searchResult); // print le contenue de la barre de recherche
+		if(searchResult === null)
+			this.searchQuery = null;
+		else
+			this.searchQuery = `?search=${searchResult}`; // on set la variable de recherche avec ce qu'on récupère de l'input
 	}
 }
