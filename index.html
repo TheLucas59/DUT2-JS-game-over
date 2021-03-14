@@ -11,8 +11,9 @@
 	<link rel="stylesheet" type="text/css" href="css/main.css" />
 	<link rel="stylesheet" href="css/header.css">
 	<link rel="stylesheet" href="css/news.css">
-	<link rel="stylesheet" href="css/pizzaList.css">
-	<link rel="stylesheet" href="css/pizzaForm.css">
+	<link rel="stylesheet" href="css/gameList.css">
+	<link rel="stylesheet" href="css/gameForm.css">
+	<link rel="stylesheet" href="css/gameDetail.css">
 	<link rel="stylesheet" href="css/footer.css">
 
 	<script src="build/main.bundle.js" defer></script>
@@ -25,7 +26,7 @@
 				<span>Game<em>Over</em></span>
 			</a>
 			<ul class="mainMenu">
-				<li><a href="/" class="pizzaListLink">La carte</a></li>
+				<li><a href="/" class="pizzaListLink">Accueil</a></li>
 				<li><a href="/favoris" class="favorisLink">Mes Favoris</a></li>
 				<li><a href="/a-propos" class="aboutLink">À propos</a></li>
 			</ul>
@@ -37,17 +38,15 @@
 		<div class="backgroundwrapper"></div>
 		<header class="pageTitle"></header>
 		<div class="searchBar" style="display:none">
-			<!-- <form class="searchForm"> -->
+			<form class="searchForm" onsubmit="return search();">
 				<input type="text" placeholder="Search.." id="searchValue">
-				<input id="searchBtn" type="button" value="rechercher">
-				<!-- <button onclick="search()">rechercher</button> -->
-			<!-- </form> -->
+				<input id="searchBtn" type="submit" value="Rechercher">
+			</form>
 		</div>
 		<div class="pageContent"></div>
 	</section>
 	<footer>
-		<div>Une (incroyable) création originale de <a href="http://uidlt.fr">Thomas Fritsch</a> pour l'<a href="https://www.iut-a.univ-lille.fr/">IUT A</a> de l'<a href="https://www.univ-lille.fr/">Université de Lille</a></div>
-		<div>Free photos from <a href="https://unsplash.com/unsplash">Unsplash</a></div>
+		<div>Powered by <a href="https://rawg.io">RAWG.io</a></div>
 		<div>Icons made by <a href="https://www.freepik.com/" title="Freepik">Freepik</a> from <a href="https://www.flaticon.com/" 			    title="Flaticon">www.flaticon.com</a> is licensed by <a href="http://creativecommons.org/licenses/by/3.0/" 			    title="Creative Commons BY 3.0" target="_blank">CC 3.0 BY</a></div>
 	</footer>
 </body>

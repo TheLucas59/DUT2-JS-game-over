@@ -42,10 +42,9 @@ gameLinks.forEach(lien => {
 
 let btn = document.getElementById('searchBtn');
 
-btn.addEventListener('click', search);
-
-function search() { 
-	// créé une nouvelle page avec GameList et en passant en param la valeur récupéré
+btn.addEventListener('click', event => {
+	event.preventDefault();
+	// créé une nouvelle page avec GameList et en passant en param la valeur récupérée
 	let input = document.getElementById("searchValue").value;
 	gameList.changeApiRequest(input);
-}
+});

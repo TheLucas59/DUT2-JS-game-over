@@ -1,10 +1,9 @@
 import Component from './Component.js';
 import Img from './Img.js';
 
-export default class PizzaThumbnail extends Component {
+export default class GameThumbnail extends Component {
 	constructor(game) {
-		super('article', { name: 'class', value: 'pizzaThumbnail' }, [
-			// TODO : changer url pour aller directement sur la page du jeu
+		super('article', { name: 'class', value: 'gameThumbnail' }, [
 			new Component('a', { name: 'href', value: `/detail-${game.slug}`, class: 'gameLink' }, [ 
 				new Img(game.background_image),
 				new Component('section', null, [
