@@ -26,9 +26,8 @@ export default class GameList extends Page {
 		let query = `?dates=2020-01-01,${today.getFullYear()}-${String(today.getMonth()+1).padStart(2, '0')}-${String(today.getDate()).padStart(2, '0')}`;
 		
 		if(this.searchQuery != null) // si null c'est qu'on a pas fait de recherche
-			query = this.searchQuery;
+			query += this.searchQuery;
 
-		console.log(`query : ${api}${query}&${ordering}`);
 		fetch(`${api}${query}&${ordering}`)
 			.then(response => response.json())
 			.then(data => {
@@ -41,6 +40,6 @@ export default class GameList extends Page {
 		if(searchResult === null)
 			this.searchQuery = null;
 		else
-			this.searchQuery = `?search=${searchResult}`; // on set la variable de recherche avec ce qu'on récupère de l'input
+			this.searchQuery = `&search=${searchResult}`; // on set la variable de recherche avec ce qu'on récupère de l'input
 	}
 }
