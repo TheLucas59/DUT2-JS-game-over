@@ -19,6 +19,7 @@ export default class GamesFav extends Page {
     }
 
     mount(element) {
+        this.gamesFav = [];
         super.mount(element);
 		document.querySelector('.searchBar').style.display=''; // affichage de la barre de recherche
         this.ids.map(id => {
