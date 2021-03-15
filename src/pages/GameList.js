@@ -1,6 +1,5 @@
 import Page from './Page';
 import GameThumbnail from '../components/GameThumbnail';
-import Component from '../components/Component';
 import Router from '../Router';
 export default class GameList extends Page {
 	#games;
@@ -44,7 +43,6 @@ export default class GameList extends Page {
 				gameLinks.forEach(lien => {
 					lien.addEventListener('click', event => {
 						event.preventDefault();
-						console.log(lien.getAttribute('href'));
 						Router.navigate(lien.getAttribute('href'), true);
 					})
 				})
