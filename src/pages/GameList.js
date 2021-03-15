@@ -1,6 +1,7 @@
 import Page from './Page';
 import GameThumbnail from '../components/GameThumbnail';
 import Component from '../components/Component';
+import Router from '../Router';
 export default class GameList extends Page {
 	#games;
 	searchQuery;
@@ -39,6 +40,14 @@ export default class GameList extends Page {
 				hideLoader();
 				this.games = data.results;
 				element.innerHTML = this.render();
+				const gameLinks = document.querySelectorAll('.gameLink');
+				gameLinks.forEach(lien => {
+					lien.addEventListener('click', event => {
+						event.preventDefault();
+						console.log(lien.getAttribute('href'));
+						Router.navigate(lien.getAttribute('href'), true);
+					})
+				})
 			});
 	}
 

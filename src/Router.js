@@ -33,11 +33,14 @@ export default class Router {
 		let route = this.routes.find(route => route.path === path);
 		if(route == undefined) {
 			if(path.startsWith('/detail-')) {
-				route = this.routes.find(route => route.path == '/detail');
+				route = this.routes.find(route => route.title == 'Detail du jeu');
 				route.path = path;
 			}
 		}
 		if (route) {
+			if (pushState) {
+				window.history.pushState(null, null, path);
+			}
 			this.titleElement.innerHTML = `<h1>${route.title}</h1>`;
 			this.contentElement.innerHTML = route.page.render();
 			route.page.mount?.(this.contentElement);
@@ -48,9 +51,6 @@ export default class Router {
 				prevActiveLink = this.#menuElement.querySelector('a.active');
 			prevActiveLink?.classList.remove('active');
 			menuLink?.classList.add('active');
-			if (pushState) {
-				window.history.pushState(null, null, path);
-			}
 		}
 	}
 }

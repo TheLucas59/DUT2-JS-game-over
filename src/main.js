@@ -54,16 +54,6 @@ function addFav() {
 window.onpopstate = () => Router.navigate(document.location.pathname, false);
 window.onpopstate();
 
-const gameLinks = document.querySelectorAll('.gameLink');
-gameLinks.forEach(lien => {
-	lien.addEventListener('click', event => {
-		event.preventDefault();
-		console.log(lien.getAttribute('href'));
-		Router.navigate(lien.getAttribute('href'), true);
-	})
-})
-
-
 let btn = document.getElementById('searchBtn');
 
 btn.addEventListener('click', event => {
