@@ -13,12 +13,11 @@ export default class GamesFav extends Page {
 
     set gamesFav(value) {
         this.#gamesFav = value;
-        console.log('#gamesFav');
-        console.log(this.#gamesFav);
 		this.children = this.#gamesFav.map(game => new GameThumbnail(game));
     }
 
     mount(element) {
+        showLoader();
         this.gamesFav = [];
         super.mount(element);
 		document.querySelector('.searchBar').style.display=''; // affichage de la barre de recherche
@@ -35,7 +34,18 @@ export default class GamesFav extends Page {
                             Router.navigate(lien.getAttribute('href'), true);
                         })
                     })
+                    hideLoader();
                 })
         });
     }
+}
+
+function showLoader(){
+	document.querySelector(".loader").classList.add("display");
+	document.querySelector(".pageContainer").classList.add("blur");
+}
+
+function hideLoader(){
+	document.querySelector(".loader").classList.remove("display");
+	document.querySelector(".pageContainer").classList.remove("blur");
 }
