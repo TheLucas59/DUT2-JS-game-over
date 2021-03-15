@@ -21,6 +21,7 @@ export default class GameDetail extends Page {
         fetch(`https://api.rawg.io/api/games/${slug}`)
             .then(response => response.json())
             .then(data => {
+                console.log(data);
                 this.jeu = data;
                 element.innerHTML = this.render();
             })

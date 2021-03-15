@@ -2,10 +2,12 @@ import Router from './Router';
 import GameList from './pages/GameList';
 import GameDetail from './pages/GameDetail';
 import Component from './components/Component';
+import GamesFav from './pages/GamesFav';
+
 
 const gameList = new GameList([]),
 	detailJeu = new GameDetail(),
-	favorisList = new Component('p', null, `Vous n'avez pas de favoris`),
+	gamesFav = new GamesFav([]),
 	aboutPage = new Component('p', null, 'ce site est génial');
 
 Router.titleElement = document.querySelector('.pageTitle');
@@ -14,7 +16,7 @@ Router.menuElement = document.querySelector('.mainMenu');
 Router.routes = [
 	{ path: '/', page: gameList, title: 'Les jeux' }, // afficher une phrase en fonction du trie (meilleur/derniere sortie/ordre croisant) ?
 	{ path: '/detail', page: detailJeu, title: 'Detail du jeu' },
-	{ path: '/favoris', page: favorisList, title: 'Mes Favoris' },
+	{ path: '/favoris', page: gamesFav, title: 'Mes Favoris' },
 	{ path: '/a-propos', page: aboutPage, title: 'À propos' },
 ];
 
