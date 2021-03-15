@@ -1,6 +1,6 @@
 import Page from './Page';
 import GameThumbnail from '../components/GameThumbnail';
-
+import Router from '../Router';
 
 export default class GamesFav extends Page {
     #gamesFav = [];
@@ -26,10 +26,15 @@ export default class GamesFav extends Page {
             return fetch(`https://api.rawg.io/api/games/${id}`)
                 .then(response => response.json())
                 .then(data => {
-                    // console.log(data);
                     this.gamesFav = [...this.#gamesFav, data];
                     element.innerHTML = this.render();
-                    // return data;
+                    const gameLinks = document.querySelectorAll('.gameLink');
+                    gameLinks.forEach(lien => {
+                        lien.addEventListener('click', event => {
+                            event.preventDefault();
+                            Router.navigate(lien.getAttribute('href'), true);
+                        })
+                    })
                 })
         });
     }
