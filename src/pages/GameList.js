@@ -23,12 +23,12 @@ export default class GameList extends Page {
 		let ordering = 'ordering=-metacritic&metacritic=50,100'; // les valeur pour ordoner les jeux (potentiellement changeable plus tard)
 
 		const today = new Date();
-		let query = `?dates=2020-01-01,${today.getFullYear()}-${String(today.getMonth()+1).padStart(2, '0')}-${String(today.getDate()).padStart(2, '0')}`;
+		let query = `dates=2020-01-01,${today.getFullYear()}-${String(today.getMonth()+1).padStart(2, '0')}-${String(today.getDate()).padStart(2, '0')}`;
 		
 		if(this.searchQuery != null) // si null c'est qu'on a pas fait de recherche
 			query += this.searchQuery;
 
-		fetch(`${api}${query}&${ordering}`)
+		fetch(`${api}?${query}&${ordering}`)
 			.then(response => response.json())
 			.then(data => {
 				this.games = data.results;
