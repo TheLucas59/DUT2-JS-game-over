@@ -22,6 +22,25 @@ document.querySelector(
 	'.logo'
 ).innerHTML += `<small>le gaming plus qu'une passion</small>`;
 
+let input = "";
+fetch('https://api.rawg.io/api/genres')
+	.then(response => response.json())
+	.then(data => {
+		data.results.forEach(genre => {
+			input += `<option value=\"${genre.slug}\">${genre.name}</option>`;
+		})
+		document.querySelector('.genres').innerHTML += input;
+	});
+
+document.querySelector('.genres').addEventListener('change', event => {
+	event.preventDefault();
+	const select = document.querySelector('.genres');
+	if(select.value == '') select.value = null;
+	gameList.changeGenre(select.value);
+	Router.navigate(document.location.pathname, false);
+})
+		
+
 const newsContainer = document.querySelector('.newsContainer');
 
 function addFav() {

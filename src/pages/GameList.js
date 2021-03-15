@@ -4,6 +4,7 @@ import Component from '../components/Component';
 export default class GameList extends Page {
 	#games;
 	searchQuery;
+	sortByGenreQuery;
 
 	constructor(games) {
 		super('gameList'); // on pase juste la classe CSS souhaitée
@@ -28,6 +29,10 @@ export default class GameList extends Page {
 		if(this.searchQuery != null) // si null c'est qu'on a pas fait de recherche
 			query += this.searchQuery;
 
+		
+		if(this.sortByGenreQuery != null)
+			query += this.sortByGenreQuery;
+		
 		fetch(`${api}?${query}&${ordering}`)
 			.then(response => response.json())
 			.then(data => {
@@ -41,5 +46,12 @@ export default class GameList extends Page {
 			this.searchQuery = null;
 		else
 			this.searchQuery = `&search=${searchResult}`; // on set la variable de recherche avec ce qu'on récupère de l'input
+	}
+
+	changeGenre(genre) {
+		if(genre === null)
+			this.sortByGenreQuery = null;
+		else
+			this.sortByGenreQuery = `&genres=${genre}`;
 	}
 }
