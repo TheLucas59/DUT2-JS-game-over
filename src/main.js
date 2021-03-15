@@ -35,8 +35,10 @@ fetch('https://api.rawg.io/api/genres')
 document.querySelector('.genres').addEventListener('change', event => {
 	event.preventDefault();
 	const select = document.querySelector('.genres');
-	if(select.value == '') select.value = null;
-	gameList.changeGenre(select.value);
+	if(select.value == '') 
+		gameList.changeGenre(null);
+	else 
+		gameList.changeGenre(select.value);
 	Router.navigate(document.location.pathname, false);
 })
 		
