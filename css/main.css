@@ -185,7 +185,6 @@ a:hover {
     margin: auto;
 	visibility: hidden;
     animation: spin 1s infinite linear;
-	z-index: 99;
 }
 
 .loader.display {
@@ -202,11 +201,10 @@ a:hover {
 }
 
 .pageContainer.blur{
-	animation: image_blur 0.5s;
+	animation: image_blur 0.5s forwards;
 }
 
 @keyframes image_blur {
-    0% { filter: blur(0px) brightness(1);}
-    50% { filter: blur(12px) brightness(0.8);}
-    100% { filter: blur(0px) brightness(1);}
+    from { filter: blur(0px);}
+    to { filter: blur(12px);}
 }
