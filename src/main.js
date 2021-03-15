@@ -7,7 +7,7 @@ import GamesFav from './pages/GamesFav';
 
 const gameList = new GameList([]),
 	detailJeu = new GameDetail(),
-	gamesFav = new GamesFav([]),
+	gamesFav = new GamesFav([339958, 326238]),
 	aboutPage = new Component('p', null, 'ce site est génial');
 
 Router.titleElement = document.querySelector('.pageTitle');

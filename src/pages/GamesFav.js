@@ -3,40 +3,33 @@ import GameThumbnail from '../components/GameThumbnail';
 
 
 export default class GamesFav extends Page {
-    #gamesFav;
+    #gamesFav = [];
+    #ids;
     
     constructor(gamesFav) {
-        super('favPage');
-        this.gamesFav = gamesFav;
+        super('gameList');
+        this.ids = gamesFav;
     }
 
     set gamesFav(value) {
-        console.log(`value : ${value}`);
         this.#gamesFav = value;
-        console.log(`in setter #gamesFav : ${this.#gamesFav}`);
-
-        this.children = this.#gamesFav.map(element => new GameThumbnail(element))
+        console.log('#gamesFav');
+        console.log(this.#gamesFav);
+		this.children = this.#gamesFav.map(game => new GameThumbnail(game));
     }
 
     mount(element) {
+        super.mount(element);
 		document.querySelector('.searchBar').style.display=''; // affichage de la barre de recherche
-        console.log(`mount ${element}`);
-        console.log(`#gamesFav : ${this.#gamesFav}`);
-
-        let tabFav = [];
-        
-        this.#gamesFav.map(id => {
-            fetch(`https://api.rawg.io/api/games/${id}`)
+        this.ids.map(id => {
+            return fetch(`https://api.rawg.io/api/games/${id}`)
                 .then(response => response.json())
                 .then(data => {
-                    console.log(`data: ${data.name}`);
-                    tabFav.push(data);
+                    // console.log(data);
+                    this.gamesFav = [...this.#gamesFav, data];
                     element.innerHTML = this.render();
-                    console.log(tabFav);
-                    this.gamesFav = tabFav;
-                });
+                    // return data;
+                })
         });
     }
-    
-    
 }
