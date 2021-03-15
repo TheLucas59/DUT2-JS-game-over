@@ -32,10 +32,11 @@ export default class GameList extends Page {
 		
 		if(this.sortByGenreQuery != null)
 			query += this.sortByGenreQuery;
-		
+		showLoader();
 		fetch(`${api}?${query}&${ordering}`)
 			.then(response => response.json())
 			.then(data => {
+				hideLoader();
 				this.games = data.results;
 				element.innerHTML = this.render();
 			});
@@ -54,4 +55,16 @@ export default class GameList extends Page {
 		else
 			this.sortByGenreQuery = `&genres=${genre}`;
 	}
+
+	
+}
+
+function showLoader(){
+	document.querySelector(".loader").classList.add("display");
+	document.querySelector(".pageContainer").classList.add("blur");
+}
+
+function hideLoader(){
+	document.querySelector(".loader").classList.remove("display");
+	document.querySelector(".pageContainer").classList.remove("blur");
 }
