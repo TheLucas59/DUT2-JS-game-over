@@ -3,12 +3,13 @@ import GameList from './pages/GameList';
 import GameDetail from './pages/GameDetail';
 import Component from './components/Component';
 import GamesFav from './pages/GamesFav';
+import CrewPage from './pages/CrewPage';
 
 
 const gameList = new GameList([]),
 	detailJeu = new GameDetail(),
 	gamesFav = new GamesFav([339958, 326238]),
-	aboutPage = new Component('p', null, 'ce site est génial');
+	crewPage = new CrewPage();
 
 Router.titleElement = document.querySelector('.pageTitle');
 Router.contentElement = document.querySelector('.pageContent');
@@ -17,7 +18,7 @@ Router.routes = [
 	{ path: '/', page: gameList, title: 'Les jeux' }, // afficher une phrase en fonction du trie (meilleur/derniere sortie/ordre croisant) ?
 	{ path: '/detail', page: detailJeu, title: 'Detail du jeu' },
 	{ path: '/favoris', page: gamesFav, title: 'Mes Favoris' },
-	{ path: '/a-propos', page: aboutPage, title: 'À propos' },
+	{ path: '/lequipe.fr', page: crewPage, title: "L'équipe" },
 ];
 
 document.querySelector(
@@ -60,6 +61,7 @@ btn.addEventListener('click', event => {
 	event.preventDefault();
 	// créé une nouvelle page avec GameList et en passant en param la valeur récupérée
 	let input = document.getElementById("searchValue").value;
+	console.log(input)
 	if(input == '') input = null;
 	gameList.changeApiRequest(input);
 	Router.navigate(document.location.pathname, false); // on "recharge" la page
