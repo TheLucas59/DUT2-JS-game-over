@@ -7,9 +7,7 @@ export default class UniqueGameThumbnail extends Component {
 			new Component('div',  {name: 'class', value: 'bgwrapper'}, [
 				new Component('figure', {name: 'class', value: 'headimagewrapper'}, [
 					new Img(game.background_image),
-				]),				
-				// bouton d'ajout au favoris qui ne fait rien pour l'instant
-				new Component('button', {name:'id', value:'favButton'}, 'addFav'),
+				]),
 				new Component('section', {name:'class', value:'gameInfo'}, [
 					new Component('h4', null, game.name),
 					new Component('p', null, game.description),

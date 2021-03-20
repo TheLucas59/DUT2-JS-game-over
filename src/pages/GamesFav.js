@@ -8,7 +8,7 @@ export default class GamesFav extends Page {
     
     constructor(gamesFav) {
         super('gameList');
-        this.ids = gamesFav;
+        this.ids = JSON.parse(localStorage.getItem('favoris'));
     }
 
     set gamesFav(value) {
@@ -20,8 +20,8 @@ export default class GamesFav extends Page {
         showLoader();
         this.gamesFav = [];
         super.mount(element);
-		document.querySelector('.searchBar').style.display=''; // affichage de la barre de recherche
-        this.ids.map(id => {
+		// document.querySelector('.searchBar').style.display=''; // affichage de la barre de recherche
+        this.ids?.forEach(id => {
             return fetch(`https://api.rawg.io/api/games/${id}`)
                 .then(response => response.json())
                 .then(data => {
@@ -36,6 +36,9 @@ export default class GamesFav extends Page {
                     })
                     hideLoader();
                 })
+                .then( e => {
+                    addEventFavButton();
+                });
         });
     }
 }
@@ -49,3 +52,40 @@ function hideLoader(){
 	document.querySelector(".loader").classList.remove("display");
 	document.querySelector(".pageContainer").classList.remove("blur");
 }
+
+function addEventFavButton() {
+    document.querySelectorAll('.favButton').forEach(
+        button => {
+            // console.log(button);
+            button.addEventListener('click', event => {
+                event.preventDefault();
+                event.stopPropagation();
+                
+                let favoris = JSON.parse(localStorage.getItem('favoris'));
+                let slug = button.getAttribute('alt');
+                
+                
+                if (favoris != null) {
+                    if (favoris.includes(slug)) {
+                        favoris.splice(favoris.indexOf(slug), 1);
+                        alert("un jeu a été retiré de vos favoris");
+                    }
+                    else {
+                        favoris.push(slug);
+                        alert("Vous avez ajouté un jeu à vos favoris");
+                    }
+                }
+                else{
+                    favoris = [slug];
+                    alert("Vous avez ajouté un jeu à vos favoris");
+                }
+                
+                localStorage.setItem("favoris", JSON.stringify(favoris));
+                
+                console.log(`New Fav : ${button.getAttribute('alt')}`);
+            });
+        }
+    )
+}
+
+export {addEventFavButton};

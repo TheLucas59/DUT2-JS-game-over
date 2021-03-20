@@ -9,8 +9,10 @@ export default class GameThumbnail extends Component {
 				new Component('section', null, [
 					new Component('h4', null, game.name),
 					new Component('p', null, `Note metacritic : ${game.metacritic}`),
+					new Component('button', [{name:'class', value:'favButton'}, {name:'alt', value:`${game.slug}`}], 'addFav'),
 				]),
 			]),
 		]);
 	}
 }
+

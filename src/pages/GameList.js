@@ -1,6 +1,8 @@
 import Page from './Page';
 import GameThumbnail from '../components/GameThumbnail';
 import Router from '../Router';
+import {addEventFavButton} from './GamesFav';
+
 export default class GameList extends Page {
 	#games;
 	searchQuery;
@@ -46,6 +48,9 @@ export default class GameList extends Page {
 						Router.navigate(lien.getAttribute('href'), true);
 					})
 				})
+			})
+			.then( e => {
+				addEventFavButton();
 			});
 	}
 

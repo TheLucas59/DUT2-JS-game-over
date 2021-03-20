@@ -8,7 +8,7 @@ import CrewPage from './pages/CrewPage';
 
 const gameList = new GameList([]),
 	detailJeu = new GameDetail(),
-	gamesFav = new GamesFav([339958, 326238]),
+	gamesFav = new GamesFav(),
 	crewPage = new CrewPage();
 
 Router.titleElement = document.querySelector('.pageTitle');
