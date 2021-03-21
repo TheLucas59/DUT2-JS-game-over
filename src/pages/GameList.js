@@ -7,6 +7,7 @@ export default class GameList extends Page {
 	#games;
 	searchQuery;
 	sortByGenreQuery;
+	orderingQuery;
 
 	constructor(games) {
 		super('gameList'); // on pase juste la classe CSS souhaitée
@@ -22,20 +23,23 @@ export default class GameList extends Page {
 		document.querySelector('.searchBar').style.display=''; // affichage de la barre de recherche
 
 		super.mount(element);
-		let api = 'https://api.rawg.io/api/games'; // adresse de base pour toute les requette
-		let ordering = 'ordering=-metacritic&metacritic=50,100'; // les valeur pour ordoner les jeux (potentiellement changeable plus tard)
+		const api = 'https://api.rawg.io/api/games'; // adresse de base pour toute les requette
+		const metacritic = 'metacritic=50,100'; // les valeur pour ordoner les jeux (potentiellement changeable plus tard)
 
 		const today = new Date();
 		let query = `dates=2020-01-01,${today.getFullYear()}-${String(today.getMonth()+1).padStart(2, '0')}-${String(today.getDate()).padStart(2, '0')}`;
 		
 		if(this.searchQuery != null) // si null c'est qu'on a pas fait de recherche
 			query += this.searchQuery;
-
 		
 		if(this.sortByGenreQuery != null)
 			query += this.sortByGenreQuery;
+		
+		if(this.orderingQuery != null)
+			query += this.orderingQuery;
+		
 		showLoader();
-		fetch(`${api}?${query}&${ordering}`)
+		fetch(`${api}?${query}&${metacritic}`)
 			.then(response => response.json())
 			.then(data => {
 				hideLoader();
@@ -66,6 +70,13 @@ export default class GameList extends Page {
 			this.sortByGenreQuery = null;
 		else
 			this.sortByGenreQuery = `&genres=${genre}`;
+	}
+
+	changeOrderingQuery(ordering) {
+		if(ordering === null)
+			this.orderingQuery = null;
+		else
+			this.orderingQuery = `&ordering=${ordering}`;
 	}
 
 	

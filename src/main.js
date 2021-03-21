@@ -45,6 +45,15 @@ document.querySelector('.genres').addEventListener('change', event => {
 	Router.navigate(document.location.pathname, false);
 })
 		
+document.querySelector('.sort').addEventListener('change', event => {
+	event.preventDefault();
+	const select = document.querySelector('.sort');
+	if(select.value == '')
+		gameList.changeOrderingQuery(null);
+	else
+		gameList.changeOrderingQuery(select.value);
+	Router.navigate(document.location.pathname, false);
+})
 
 const newsContainer = document.querySelector('.newsContainer');
 
