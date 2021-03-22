@@ -1,7 +1,6 @@
 import Router from './Router';
 import GameList from './pages/GameList';
 import GameDetail from './pages/GameDetail';
-import Component from './components/Component';
 import GamesFav from './pages/GamesFav';
 import CrewPage from './pages/CrewPage';
 
@@ -15,7 +14,7 @@ Router.titleElement = document.querySelector('.pageTitle');
 Router.contentElement = document.querySelector('.pageContent');
 Router.menuElement = document.querySelector('.mainMenu');
 Router.routes = [
-	{ path: '/', page: gameList, title: 'Les jeux' }, // afficher une phrase en fonction du trie (meilleur/derniere sortie/ordre croisant) ?
+	{ path: '/', page: gameList, title: 'Les jeux' },
 	{ path: '/detail', page: detailJeu, title: 'Detail du jeu' },
 	{ path: '/mes-favoris', page: gamesFav, title: 'Mes Favoris' },
 	{ path: '/lequipe.fr', page: crewPage, title: "L'équipe" },
@@ -55,12 +54,6 @@ document.querySelector('.sort').addEventListener('change', event => {
 	Router.navigate(document.location.pathname, false);
 })
 
-const newsContainer = document.querySelector('.newsContainer');
-
-function addFav() {
-	alert("Ajouter aux favoris")
-}
-
 window.onpopstate = () => Router.navigate(document.location.pathname, false);
 window.onpopstate();
 
@@ -68,10 +61,9 @@ let btn = document.getElementById('searchBtn');
 
 btn.addEventListener('click', event => {
 	event.preventDefault();
-	// créé une nouvelle page avec GameList et en passant en param la valeur récupérée
 	let input = document.getElementById("searchValue").value;
 	console.log(input)
 	if(input == '') input = null;
 	gameList.changeApiRequest(input);
-	Router.navigate(document.location.pathname, false); // on "recharge" la page
+	Router.navigate(document.location.pathname, false);
 });
