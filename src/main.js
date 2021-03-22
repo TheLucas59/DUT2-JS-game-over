@@ -17,7 +17,7 @@ Router.menuElement = document.querySelector('.mainMenu');
 Router.routes = [
 	{ path: '/', page: gameList, title: 'Les jeux' }, // afficher une phrase en fonction du trie (meilleur/derniere sortie/ordre croisant) ?
 	{ path: '/detail', page: detailJeu, title: 'Detail du jeu' },
-	{ path: '/favoris', page: gamesFav, title: 'Mes Favoris' },
+	{ path: '/mes-favoris', page: gamesFav, title: 'Mes Favoris' },
 	{ path: '/lequipe.fr', page: crewPage, title: "L'équipe" },
 ];
 
