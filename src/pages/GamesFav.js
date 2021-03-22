@@ -82,16 +82,16 @@ function addEventFavButton() {
                 if (favoris != null) {
                     if (favoris.includes(slug)) {
                         favoris.splice(favoris.indexOf(slug), 1);
-                        alert("un jeu a été retiré de vos favoris");
+                        alert(`${slug} a été retiré de vos favoris`);
                     }
                     else {
                         favoris.push(slug);
-                        alert("Vous avez ajouté un jeu à vos favoris");
+                        alert(`Vous avez ajouté ${slug} à vos favoris`);
                     }
                 }
                 else{
                     favoris = [slug];
-                    alert("Vous avez ajouté un jeu à vos favoris");
+                    alert(`Vous avez ajouté ${slug} à vos favoris`);
                 }
                 
                 localStorage.setItem("favoris", JSON.stringify(favoris));
