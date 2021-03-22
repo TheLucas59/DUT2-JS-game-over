@@ -17,13 +17,13 @@ export default class GamesFav extends Page {
     }
 
     mount(element) {
-        showLoader();
         this.gamesFav = [];
         super.mount(element);
                 
         let favs = JSON.parse(localStorage.getItem('favoris'));
         
         favs.forEach(slug => {
+            showLoader();
             return fetch(`https://api.rawg.io/api/games/${slug}`)
                 .then(response => response.json())
                 .then(data => {
@@ -60,7 +60,6 @@ function hideLoader(){
 function addEventFavButton() {
     document.querySelectorAll('.favButton').forEach(
         button => {
-            // console.log(button);
             button.addEventListener('click', event => {
                 event.preventDefault();
                 event.stopPropagation();
@@ -86,7 +85,6 @@ function addEventFavButton() {
                 
                 localStorage.setItem("favoris", JSON.stringify(favoris));
                 
-                console.log(`New Fav : ${button.getAttribute('alt')}`);
             	Router.navigate(document.location.pathname, false); // on "recharge" la page
 
             });
