@@ -4,6 +4,9 @@ import Img from './Img.js';
 export default class GameThumbnail extends Component {
 	constructor(game) {
 		let favs = JSON.parse(localStorage.getItem('favoris'));
+		if(favs == null){
+			favs = [];
+		}
 		let favButton = "Ajouter aux favoris";
 		if(favs.includes(game.slug)){
 			favButton = "Enlever des favoris";
