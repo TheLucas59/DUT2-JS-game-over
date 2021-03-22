@@ -13,7 +13,7 @@ export default class MemberStatus extends Component {
                     new Component('a', [{ name: 'href', value: `/detail-${member.preferredGameSlug}` }, { name: "class", value: "preferredGame"}],[
                         new Component('p', null, `Jeu préféré : ${member.preferredGame}`)
                     ]),
-                    new Component('p', null, member.preferredGameDescription)
+                    new Component('p', {name: 'class', value:'citation'}, `"${member.preferredGameDescription}"`)
                 ])
             ])
         ]);
