@@ -25,6 +25,10 @@ export default class GameDetail extends Page {
                 this.jeu = data;
                 element.innerHTML = this.render();
                 hideLoader();
+            }).catch(function() {
+                hideLoader();
+                element.innerHTML = `<h2>Ce jeu n'existe pas...</h2>`
+                return;
             })
     }
 
