@@ -1,15 +1,14 @@
 import Page from './Page';
 import GameThumbnail from '../components/GameThumbnail';
 import Router from '../Router';
+import {hideLoader, showLoader} from '../Loader.js'
 let config = require('../../tokenconfig.json')
 
 export default class GamesFav extends Page {
     #gamesFav = [];
-    // #ids;
     
     constructor() {
         super('gameList');
-        // this.ids = JSON.parse(localStorage.getItem('favoris'));
     }
 
     set gamesFav(value) {
@@ -58,15 +57,7 @@ export default class GamesFav extends Page {
     }
 }
 
-function showLoader(){
-	document.querySelector(".loader").classList.add("display");
-	document.querySelector(".pageContainer").classList.add("blur");
-}
 
-function hideLoader(){
-	document.querySelector(".loader").classList.remove("display");
-	document.querySelector(".pageContainer").classList.remove("blur");
-}
 
 function addEventFavButton() {
     document.querySelectorAll('.favButton').forEach(
@@ -96,7 +87,7 @@ function addEventFavButton() {
                 
                 localStorage.setItem("favoris", JSON.stringify(favoris));
                 
-            	Router.navigate(document.location.pathname, false); // on "recharge" la page
+            	Router.navigate(document.location.pathname, false);
 
             });
         }

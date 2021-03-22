@@ -20,7 +20,7 @@ export default class CrewPage extends Page {
             profilePic:'../../images/loic_profil_pic.png',
             nom:'Loïc DEMAY',
             surnom:'le blob',
-            description:`Le mec qui fait du bruit en CTP avec son clavier méchanique.`,
+            description:`Le mec qui fait du bruit en CTP avec son clavier mécanique.`,
             preferredGame:'Call Of Duty: Modern Warfare 2',
             preferredGameSlug:'modern-warfare-2',
             preferredGameDescription:`Oui, je suis bloqué en 2009`

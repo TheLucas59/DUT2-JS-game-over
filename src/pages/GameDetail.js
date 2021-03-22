@@ -4,6 +4,7 @@ import Screenshots from '../components/Screenshots';
 import UniqueGameThumbnail from '../components/UniqueGameThumbnail';
 import Page from './Page';
 import {addEventFavButton} from './GamesFav';
+import {hideLoader, showLoader} from '../Loader.js'
 
 export default class GameDetail extends Page {
 
@@ -47,14 +48,4 @@ export default class GameDetail extends Page {
             })
     }
 
-}
-
-function showLoader(){
-	document.querySelector(".loader").classList.add("display");
-	document.querySelector(".pageContainer").classList.add("blur");
-}
-
-function hideLoader(){
-	document.querySelector(".loader").classList.remove("display");
-	document.querySelector(".pageContainer").classList.remove("blur");
 }

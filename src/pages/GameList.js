@@ -2,6 +2,7 @@ import Page from './Page';
 import GameThumbnail from '../components/GameThumbnail';
 import Router from '../Router';
 import {addEventFavButton} from './GamesFav';
+import {hideLoader, showLoader} from '../Loader.js'
 let config = require('../../tokenconfig.json')
 
 export default class GameList extends Page {
@@ -11,7 +12,7 @@ export default class GameList extends Page {
 	orderingQuery;
 
 	constructor(games) {
-		super('gameList'); // on pase juste la classe CSS souhaitée
+		super('gameList');
 		this.games = games;
 	}
 
@@ -21,16 +22,16 @@ export default class GameList extends Page {
 	}
 
 	mount(element) {
-		document.querySelector('.searchBar').style.display=''; // affichage de la barre de recherche
+		document.querySelector('.searchBar').style.display='';
 
 		super.mount(element);
-		const api = 'https://api.rawg.io/api/games'; // adresse de base pour toute les requette
-		const metacritic = 'metacritic=50,100'; // les valeur pour ordoner les jeux (potentiellement changeable plus tard)
+		const api = 'https://api.rawg.io/api/games';
+		const metacritic = 'metacritic=50,100';
 
 		const today = new Date();
 		let query = `dates=2020-01-01,${today.getFullYear()}-${String(today.getMonth()+1).padStart(2, '0')}-${String(today.getDate()).padStart(2, '0')}`;
 		
-		if(this.searchQuery != null) // si null c'est qu'on a pas fait de recherche
+		if(this.searchQuery != null)
 			query += this.searchQuery;
 		
 		if(this.sortByGenreQuery != null)
@@ -68,7 +69,7 @@ export default class GameList extends Page {
 		if(searchResult === null)
 			this.searchQuery = null;
 		else
-			this.searchQuery = `&search=${searchResult}`; // on set la variable de recherche avec ce qu'on récupère de l'input
+			this.searchQuery = `&search=${searchResult}`;
 	}
 
 	changeGenre(genre) {
@@ -86,14 +87,4 @@ export default class GameList extends Page {
 	}
 
 	
-}
-
-function showLoader(){
-	document.querySelector(".loader").classList.add("display");
-	document.querySelector(".pageContainer").classList.add("blur");
-}
-
-function hideLoader(){
-	document.querySelector(".loader").classList.remove("display");
-	document.querySelector(".pageContainer").classList.remove("blur");
 }
