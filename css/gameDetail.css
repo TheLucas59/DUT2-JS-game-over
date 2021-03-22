@@ -41,6 +41,7 @@ figure img {
 
 .gameInfo {
     padding-bottom: 15px;
+    width: 100%;
 }
 
 .UniqueGameThumbnail h3 {
@@ -65,4 +66,14 @@ figure img {
     width: 100%;
     border: 1px solid #000;
     box-shadow: 0 0 8px 2px rgba(0, 0, 0, 0.8);
+}
+
+.gameInfo .favButton {
+    margin-top: -75px;
+
+    margin-left: auto;
+    margin-right: auto;
+    left: 0;
+    right: 0;
+    position: absolute;
 }

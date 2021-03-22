@@ -3,6 +3,7 @@ import Img from '../components/Img';
 import Screenshots from '../components/Screenshots';
 import UniqueGameThumbnail from '../components/UniqueGameThumbnail';
 import Page from './Page';
+import {addEventFavButton} from './GamesFav';
 
 export default class GameDetail extends Page {
 
@@ -36,6 +37,8 @@ export default class GameDetail extends Page {
                             new Component('a', { name: 'href', value: result.image }, [
                                 new Img(result.image)
                             ]))).render();
+                    addEventFavButton()
+
                     })
             }).catch(function() {
                 hideLoader();
