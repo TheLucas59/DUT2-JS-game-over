@@ -4,11 +4,11 @@ import Router from '../Router';
 
 export default class GamesFav extends Page {
     #gamesFav = [];
-    #ids;
+    // #ids;
     
-    constructor(gamesFav) {
+    constructor() {
         super('gameList');
-        this.ids = JSON.parse(localStorage.getItem('favoris'));
+        // this.ids = JSON.parse(localStorage.getItem('favoris'));
     }
 
     set gamesFav(value) {
@@ -20,13 +20,16 @@ export default class GamesFav extends Page {
         showLoader();
         this.gamesFav = [];
         super.mount(element);
-		// document.querySelector('.searchBar').style.display=''; // affichage de la barre de recherche
-        this.ids?.forEach(id => {
-            return fetch(`https://api.rawg.io/api/games/${id}`)
+                
+        let favs = JSON.parse(localStorage.getItem('favoris'));
+        
+        favs.forEach(slug => {
+            return fetch(`https://api.rawg.io/api/games/${slug}`)
                 .then(response => response.json())
                 .then(data => {
                     this.gamesFav = [...this.#gamesFav, data];
                     element.innerHTML = this.render();
+                    
                     const gameLinks = document.querySelectorAll('.gameLink');
                     gameLinks.forEach(lien => {
                         lien.addEventListener('click', event => {
@@ -35,9 +38,10 @@ export default class GamesFav extends Page {
                         })
                     })
                     hideLoader();
+
                 })
-                .then( e => {
-                    addEventFavButton();
+                .then(e => {
+                    addEventFavButton()
                 });
         });
     }
@@ -83,6 +87,8 @@ function addEventFavButton() {
                 localStorage.setItem("favoris", JSON.stringify(favoris));
                 
                 console.log(`New Fav : ${button.getAttribute('alt')}`);
+            	Router.navigate(document.location.pathname, false); // on "recharge" la page
+
             });
         }
     )
