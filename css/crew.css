@@ -1,3 +1,39 @@
+.bgwrapper {
+    background: rgba(0, 0, 0, 0.9)
+}
+
 .memberStatus {
-    background-color: white;
+    color:white;
+}
+
+.devInfo {
+    padding-bottom: 15px;
+    position : relative;
+    margin-left : 200px;
+    border-left : solid white 1px;
+    text-align: center;
+}
+
+.memberStatus p {
+    margin-left: 25px;
+    margin-right: 25px;
+    margin-top: 10px;
+    margin-bottom: 10px;
+}
+
+.memberStatus img {
+    max-height: 150px;
+    max-width: 150px;
+    margin-left: 25px;
+    margin-right: 25px;
+    margin-top: 25px;
+    position: absolute;
+    object-fit: cover;
+    vertical-align: middle;
+}
+
+.memberStatus h2 {
+    margin-left: 25px;
+    margin-right: 25px;
+    padding-top: 25px;
 }
