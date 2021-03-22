@@ -5,7 +5,7 @@ export default class MemberStatus extends Component {
     constructor(member) {
         super('article', {name:'class', value:'memberStatus'}, [
             new Component('div',  {name: 'class', value: 'bgwrapper'}, [
-                new Img(member.profilPic),
+                new Img(member.profilePic),
                 new Component('section', {name: 'class', value: 'devInfo'}, [
                     new Component('h2', null, member.nom),
                     new Component('p', null, `a.k.a ${member.surnom}`),

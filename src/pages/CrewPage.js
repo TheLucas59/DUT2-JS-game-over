@@ -7,7 +7,7 @@ export default class CrewPage extends Page {
         super.mount(element);
 
         let eliott = {
-            profilPic:'../../images/eliott_profil_pic.png',
+            profilePic:'../../images/eliott_profil_pic.png',
             nom:'Eliott COLLIN',
             surnom:'',
             description:'MANGER !',
@@ -17,7 +17,7 @@ export default class CrewPage extends Page {
         };
 
         let loïc = {
-            profilPic:'../../images/loic_profil_pic.png',
+            profilePic:'../../images/loic_profil_pic.png',
             nom:'Loïc DEMAY',
             surnom:'le blob',
             description:``,
@@ -27,7 +27,7 @@ export default class CrewPage extends Page {
         };
 
         let lucas = {
-            profilPic:'../../images/lucas_profil_pic.png',
+            profilePic:'../../images/lucas_profil_pic.png',
             nom:'Lucas PLÉ',
             surnom:'',
             description:'',
