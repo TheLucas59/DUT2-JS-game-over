@@ -42,3 +42,8 @@ figure img {
 .gameInfo {
     padding-bottom: 15px;
 }
+
+section h3 {
+    margin-left: 25px;
+    margin-right: 25px;
+}
