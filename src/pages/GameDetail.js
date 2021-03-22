@@ -1,3 +1,6 @@
+import Component from '../components/Component';
+import Img from '../components/Img';
+import Screenshots from '../components/Screenshots';
 import UniqueGameThumbnail from '../components/UniqueGameThumbnail';
 import Page from './Page';
 
@@ -25,6 +28,15 @@ export default class GameDetail extends Page {
                 this.jeu = data;
                 element.innerHTML = this.render();
                 hideLoader();
+            }).then(() => {
+                fetch(`https://api.rawg.io/api/games/${slug}/screenshots`)
+                    .then(response => response.json())
+                    .then(data => {
+                        element.innerHTML += new Screenshots(data.results.map(result => 
+                            new Component('a', { name: 'href', value: result.image }, [
+                                new Img(result.image)
+                            ]))).render();
+                    })
             }).catch(function() {
                 hideLoader();
                 element.innerHTML = `<h2>Ce jeu n'existe pas...</h2>`

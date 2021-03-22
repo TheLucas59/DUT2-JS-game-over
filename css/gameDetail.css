@@ -43,7 +43,26 @@ figure img {
     padding-bottom: 15px;
 }
 
-section h3 {
+.UniqueGameThumbnail h3 {
     margin-left: 25px;
     margin-right: 25px;
+}
+
+.UniqueGameThumbnail h2 {
+    padding-top: 20px;
+    text-align: center;
+    font-weight: bold;
+    font-style: italic;
+    font-size: 2.5em;
+}
+
+.screenshots img {
+    max-width: 40%;
+    max-height: 40%;
+    margin: 20px 5% 20px 5%;
+    vertical-align: middle;
+    object-fit: cover;
+    width: 100%;
+    border: 1px solid #000;
+    box-shadow: 0 0 8px 2px rgba(0, 0, 0, 0.8);
 }
