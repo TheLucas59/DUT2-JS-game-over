@@ -2,6 +2,7 @@ import Page from './Page';
 import GameThumbnail from '../components/GameThumbnail';
 import Router from '../Router';
 import {addEventFavButton} from './GamesFav';
+let config = require('../../tokenconfig.json')
 
 export default class GameList extends Page {
 	#games;
@@ -38,8 +39,13 @@ export default class GameList extends Page {
 		if(this.orderingQuery != null)
 			query += this.orderingQuery;
 		
+		let auth = ''
+		if(config.token.length == 32){
+			auth = `&key=${config.token}`
+		}
+
 		showLoader();
-		fetch(`${api}?${query}&${metacritic}`)
+		fetch(`${api}?${query}&${metacritic}${auth}`)
 			.then(response => response.json())
 			.then(data => {
 				hideLoader();

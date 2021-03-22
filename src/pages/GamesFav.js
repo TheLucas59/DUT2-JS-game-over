@@ -1,6 +1,7 @@
 import Page from './Page';
 import GameThumbnail from '../components/GameThumbnail';
 import Router from '../Router';
+let config = require('../../tokenconfig.json')
 
 export default class GamesFav extends Page {
     #gamesFav = [];
@@ -22,9 +23,14 @@ export default class GamesFav extends Page {
                 
         let favs = JSON.parse(localStorage.getItem('favoris'));
         
+        let auth = ''
+		if(config.token.length == 32){
+			auth = `?key=${config.token}`
+		}
+
         favs.forEach(slug => {
             showLoader();
-            return fetch(`https://api.rawg.io/api/games/${slug}`)
+            return fetch(`https://api.rawg.io/api/games/${slug}${auth}`)
                 .then(response => response.json())
                 .then(data => {
                     this.gamesFav = [...this.#gamesFav, data];
