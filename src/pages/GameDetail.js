@@ -30,6 +30,21 @@ export default class GameDetail extends Page {
                 this.jeu = data;
                 element.innerHTML = this.render();
                 hideLoader();
+                data.stores.forEach(store => {
+                    if(store.store.slug == 'steam'){
+                        let appId = store.url.slice('https://store.steampowered.com/app/'.length, store.url.length-1);
+                        if(appId.includes('/')){
+                            appId = appId.slice(0, appId.indexOf('/'));
+                        }
+                        let corsProxy = 'https://cors-anywhere.herokuapp.com/'; // CORS proxy nécéssaire malheureusement
+                        fetch(`${corsProxy}https://www.protondb.com/api/v1/reports/summaries/${appId}.json`)
+                            .then(response => response.json())
+                            .then(data => {
+                                document.querySelector('.protondb').innerHTML += `Rating ProtonDB : ${data.tier} avec un score de ${data.score*100}%`;                                
+                            }).catch();
+                    }
+                });
+
             }).then(() => {
                 fetch(`https://api.rawg.io/api/games/${slug}/screenshots`)
                     .then(response => response.json())

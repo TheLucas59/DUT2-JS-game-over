@@ -20,10 +20,11 @@ export default class UniqueGameThumbnail extends Component {
 					new Component('h4', null, game.name),
 					new Component('button', [{name:'class', value:'favButton'}, {name:'alt', value:`${game.slug}`}], `${favButton}`),
 					new Component('p', null, game.description),
-					new Component('p', null, `Note metacritic : ${game.metacritic}`),
 					new Component('p', null, `Genres :${game.genres.map(genre =>  ' ' + genre.name)}`),
 					new Component('p', null, `Plateformes :${game.platforms.map(platform => ' ' + platform.platform.name)}`),
-					new Component('h2', null, 'Screenshots')
+					new Component('p', null, `Note metacritic : ${game.metacritic}`),
+					new Component('p', {name:'class', value:'protondb'}, ''),
+					new Component('h2', null, 'Screenshots'),
 				]),
 			]), 
 		]);
