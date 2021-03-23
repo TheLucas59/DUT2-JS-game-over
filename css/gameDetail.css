@@ -77,3 +77,9 @@ figure img {
     right: 0;
     position: absolute;
 }
+
+.unknown, .empty {
+    padding: 20px;
+    background: rgba(0, 0, 0, 0.9);
+    color:white
+}

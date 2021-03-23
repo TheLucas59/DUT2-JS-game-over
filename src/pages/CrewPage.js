@@ -1,6 +1,7 @@
 import Page from './Page';
 import MemberStatus from '../components/MemberStatus';
 import Router from '../Router';
+import Component from '../components/Component';
 
 export default class CrewPage extends Page {
     mount(element) {
@@ -39,6 +40,9 @@ export default class CrewPage extends Page {
         element.innerHTML = new MemberStatus(eliott).render();
         element.innerHTML += new MemberStatus(loic).render();
         element.innerHTML += new MemberStatus(lucas).render();
+        element.innerHTML += new Component('p',
+            {'name': 'class', 'value': 'repartition' },
+            'Nous estimons que chacun a effectué une partie égale de travail. Nous avons travaillés en groupe, tout le monde a participé.').render();
 
         document.querySelectorAll('.preferredGame').forEach(lien => {
             lien.addEventListener('click', event => {
