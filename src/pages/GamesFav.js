@@ -28,7 +28,7 @@ export default class GamesFav extends Page {
 		}
 
         if(favs == null || favs.length == 0){
-            element.innerHTML = `<h2>Vous n'avez pas de favoris... Allez en ajouter!</h2>`;
+            element.innerHTML = `<h2 class="empty">Vous n'avez pas de favoris... Allez en ajouter!</h2>`;
             return;
         }
         

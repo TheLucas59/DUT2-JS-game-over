@@ -43,7 +43,7 @@ export default class GameDetail extends Page {
                     })
             }).catch(function() {
                 hideLoader();
-                element.innerHTML = `<h2>Ce jeu n'existe pas...</h2>`
+                element.innerHTML = `<h2 class="unknown">Ce jeu n'existe pas...</h2>`
                 return;
             })
     }
