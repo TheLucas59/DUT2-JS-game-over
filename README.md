@@ -1,10 +1,14 @@
-# Projet JS 2021
+# Projet JS 2021 : "Game Over"
 
 ### Membres
 
 - Loïc DEMAY
 - Lucas PLÉ
 - Eliott COLIN
+
+### État du Projet
+
+Une deuxième branche, `protondb-feature-abandonned`, contient une feature abandonnée à cause de limitations de l'API RAWG. Les instructions pour tester cette branche sont dans le README de cette dernière. Cette feature permet l'affichage de la note ProtonDB, un site répertoriant la compatibilité des jeux Steam avec Proton, le fork de Wine de Valve permettant aux utilisateurs Linux de jouer à des jeux sans port natif pour Linux.
 
 ### Build
 
